@@ -1,4 +1,5 @@
 // Details of Mime types: https://developers.google.com/drive/api/guides/mime-types
+// Note Google Script uses the older Drive v2 API's: https://stackoverflow.com/questions/52100052/folder-searchfiles-method-raises-invalid-argument-q-error
 
 const DATE = Utilities.formatDate(new Date(), "GMT+10", "dd/MM/yyyy HH:mm")
 //Replace the below ID with the desired location. Can grab this from the URL when browsing Google Drive
@@ -6,7 +7,7 @@ const DESTINATION = DriveApp.getFolderById("1r4A2_O3pYthGZ1OZ-F1ez6FqHJbbjOwG").
 
 
 function backupForms(){
-  var files = DriveApp.searchFiles('mimeType = "application/vnd.google-apps.form"');
+  var files = DriveApp.searchFiles('not title contains "Backup of -" and mimeType = "application/vnd.google-apps.form"');
   let counter = 0;
   while (files.hasNext()) {
     var file = files.next();
@@ -19,7 +20,7 @@ function backupForms(){
 }
 
 function backupSites(){
-  var files = DriveApp.searchFiles('mimeType = "application/vnd.google-apps.site"');
+  var files = DriveApp.searchFiles('not title contains "Backup of -" and mimeType = "application/vnd.google-apps.site"');
   let counter = 0;
   while (files.hasNext()) {
     var file = files.next();
