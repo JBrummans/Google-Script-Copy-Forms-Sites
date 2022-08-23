@@ -3,7 +3,7 @@
 
 const DATE = Utilities.formatDate(new Date(), "GMT+10", "dd/MM/yyyy HH:mm")
 //Replace the below ID with the desired location. Can grab this from the URL when browsing Google Drive
-const DESTINATION = DriveApp.getFolderById("1r4A2_O3pYthGZ1OZ-F1ez6FqHJbbjOwG").createFolder(DATE).getId(); // Created a sub folder with date/time
+const DESTINATION = DriveApp.getFolderById("FOLDERIDHERE").createFolder(DATE).getId(); // Created a sub folder with date/time
 
 
 function backupForms(){
